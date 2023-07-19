@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MET Color Guessing Game</title>
+</head>
+<body>
+    <h1>MET Color Guessing Game</h1>
+    <h2>Result</h2>
+    <p>{{ result }}</p>
+    
+    <h3>Color Palette</h3>
+    <div>
+        {% for color in palette %}
+            <div style="width: 40px; height: 40px; background-color: {{ color }}; display: inline-block;"></div>
+        {% endfor %}
+    </div>
+    
+    <h3>Correct Artist</h3>
+    <p>{{ painters[0] }}</p>
+    
+    <h3>Painting Image</h3>
+    <img src="{{ painting_image_url }}" alt="Painting" style="height: 500px;">
+    
+    <form action="/" method="get">
+        <button type="submit">Play Again</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MET Color Guessing Game</title>
+    <style>
+        .color-barcode {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 200px;
+            width: 400px;
+            border: 1px solid black;
+        }
+        
+        .color-block {
+            height: 100%;
+            flex-grow: 1;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+        }
+        
+        .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MET Color Guessing Game</h1>
+    <h2>Guess the Artist</h2>
+    
+    <div class="color-barcode">
+        {% for color in palette %}
+            <div class="color-block" style="background-color: {{ color }}"></div>
+        {% endfor %}
+    </div>
+    
+    <div class="button-container">
+        <form action="/guess" method="post">
+            {% for painter in painters %}
+                <button class="btn" type="submit" name="guess" value="{{ painter }}">{{ painter }}</button>
+            {% endfor %}
+            <input type="hidden" name="painting_id" value="{{ painting_id }}">
+        </form>
+    </div>
+</body>
+</html>
